@@ -15,3 +15,9 @@ slides[(index+1)%slides.length].classList.add("active")
 })
 
 },3000)
+
+
+
+function openProduct(id){
+window.location.href="product.html?id="+id
+}

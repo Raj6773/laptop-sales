@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
@@ -11,6 +10,55 @@
 
 <link rel="stylesheet" href="style.css">
 
+<style>
+
+.product-page{
+display:flex;
+gap:40px;
+max-width:1200px;
+margin:auto;
+padding:40px;
+}
+
+.product-gallery{
+flex:1;
+}
+
+.product-gallery img{
+width:100%;
+border-radius:10px;
+}
+
+.thumbnails{
+display:flex;
+gap:10px;
+margin-top:10px;
+}
+
+.thumbnails img{
+width:70px;
+cursor:pointer;
+border-radius:6px;
+}
+
+.product-info{
+flex:1;
+background:white;
+padding:20px;
+border-radius:12px;
+box-shadow:0 6px 18px rgba(0,0,0,0.1);
+}
+
+@media(max-width:800px){
+
+.product-page{
+flex-direction:column;
+}
+
+}
+
+</style>
+
 </head>
 
 <body>
@@ -19,74 +67,17 @@
 
 <div class="product-gallery">
 
-<img id="mainImage" src="images/hp040-1.jpg">
+<img id="mainImage" src="">
 
-<div class="thumbs">
-
-<img src="images/hp040-1.jpg" onclick="changeImage(this)">
-<img src="images/hp040-2.jpg" onclick="changeImage(this)">
-<img src="images/hp040-3.jpg" onclick="changeImage(this)">
-<img src="images/hp040-4.jpg" onclick="changeImage(this)">
-<img src="images/hp040-5.jpg" onclick="changeImage(this)">
-<img src="images/hp040-6.jpg" onclick="changeImage(this)">
+<div class="thumbnails" id="thumbs"></div>
 
 </div>
 
-</div>
-
-<div class="product-info">
-
-<h2>HP 340s G7</h2>
-
-<p><b>Laptop ID:</b> 040HD</p>
-
-<p class="price">₹15000</p>
-
-<div class="specs">
-
-<p><b>Processor:</b> Intel Core i5 10th Gen</p>
-<p><b>RAM:</b> 8GB</p>
-<p><b>Storage:</b> 512GB SSD</p>
-
-<p><b>Laptop Condition:</b> Display Issue</p>
-
-<p><b>Battery Health:</b> Fair  
-<span class="note">(Battery can be replaced from another available HP unit in existing stock if required. Additional charges may apply.)</span></p>
-
-<p><b>Keyboard:</b> Standard Keyboard</p>
-
-<p><b>Fingerprint Sensor:</b> Yes</p>
-
-<p><b>Condition Note:</b> Small dark mark on bottom-left of screen. Laptop works normally.</p>
-
-<p><b>OS:</b> Windows 11 Pro</p>
-
-<p><b>Software:</b> Microsoft Office Installed</p>
-
-<p><b>Charger:</b> Included</p>
+<div class="product-info" id="productInfo"></div>
 
 </div>
 
-<a class="product-link"
-href="https://www.flipkart.com/hp-340s-g7-core-i5-10th-gen-8-gb-512-gb-ssd-windows-10-pro-laptop/p/itm7d97dbba2a8ec"
-target="_blank">
-
-View Original Laptop Details
-
-</a>
-
-<a class="btn"
-href="https://wa.me/7416906493?text=Hi I am interested in Laptop ID 040HD">
-
-Chat on WhatsApp
-
-</a>
-
-</div>
-
-</div>
-
-<script src="script.js"></script>
+<script src="product.js"></script>
 
 </body>
 </html>
