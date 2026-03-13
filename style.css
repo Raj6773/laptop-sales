@@ -1,5 +1,5 @@
 body{
-font-family:Arial, Helvetica, sans-serif;
+font-family:Arial;
 margin:0;
 background:#f5f5f5;
 }
@@ -8,7 +8,7 @@ header{
 background:#111;
 color:white;
 text-align:center;
-padding:30px;
+padding:25px;
 }
 
 .notice{
@@ -17,22 +17,11 @@ text-align:center;
 padding:15px;
 }
 
-.brand{
-text-align:center;
-margin-top:40px;
-}
-
-.section-info{
-text-align:center;
-max-width:600px;
-margin:auto;
-}
-
 .container{
 display:grid;
-grid-template-columns:repeat(3,1fr);
+grid-template-columns:repeat(2,1fr);
 gap:25px;
-max-width:1200px;
+max-width:1000px;
 margin:auto;
 padding:30px;
 }
@@ -40,59 +29,105 @@ padding:30px;
 .card{
 background:white;
 border-radius:12px;
-padding:15px;
-text-align:center;
+padding:20px;
 box-shadow:0 6px 18px rgba(0,0,0,0.1);
 }
 
-.card img{
-width:100%;
-border-radius:10px;
+.slider{
+position:relative;
 }
 
-.card h3{
-margin:10px 0 5px;
+.slider img{
+width:100%;
+border-radius:10px;
+display:none;
+}
+
+.slider img.active{
+display:block;
 }
 
 .price{
-font-size:22px;
+font-size:24px;
 font-weight:bold;
 }
 
-.short{
-color:#555;
-font-size:14px;
+.specs p{
+margin:5px 0;
+}
+
+.note{
+font-size:13px;
+color:#666;
+}
+
+.product-link{
+display:block;
+margin-top:10px;
+color:#0077cc;
 }
 
 .btn{
 display:block;
 background:#25D366;
 color:white;
-text-decoration:none;
+text-align:center;
 padding:10px;
-margin-top:12px;
 border-radius:6px;
+text-decoration:none;
+margin-top:12px;
 font-weight:bold;
 }
 
-.product-link{
-display:block;
-margin-top:8px;
-color:#0077cc;
-text-decoration:none;
-font-size:14px;
+.product-page{
+display:flex;
+gap:40px;
+max-width:1100px;
+margin:auto;
+padding:40px;
+}
+
+.product-gallery{
+flex:1;
+}
+
+.product-gallery img{
+width:100%;
+border-radius:10px;
+}
+
+.thumbs{
+display:flex;
+gap:8px;
+margin-top:10px;
+}
+
+.thumbs img{
+width:70px;
+cursor:pointer;
+border-radius:6px;
+}
+
+.product-info{
+flex:1;
 }
 
 footer{
-background:#111;
-color:white;
 text-align:center;
 padding:20px;
+background:#111;
+color:white;
 margin-top:40px;
 }
 
-@media(max-width:900px){
+@media(max-width:700px){
+
 .container{
-grid-template-columns:repeat(2,1fr);
+grid-template-columns:1fr;
 }
+
+.product-page{
+flex-direction:column;
+}
+
 }
