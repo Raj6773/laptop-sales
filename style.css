@@ -19,6 +19,7 @@ text-align:center;
 
 .brand{
 margin:40px;
+text-align:center;
 }
 
 .container{
@@ -29,7 +30,7 @@ justify-content:center;
 
 .card{
 background:white;
-width:280px;
+width:320px;
 margin:20px;
 padding:20px;
 border-radius:10px;
@@ -44,16 +45,27 @@ transform:translateY(-5px);
 .card img{
 width:100%;
 border-radius:8px;
+margin-bottom:10px;
 }
 
 .price{
-font-size:20px;
+font-size:22px;
 font-weight:bold;
+margin-bottom:10px;
+}
+
+ul{
+padding-left:18px;
+}
+
+.note{
+font-size:13px;
+color:#555;
 }
 
 .product-link{
 display:block;
-margin-top:8px;
+margin-top:10px;
 color:#0077cc;
 text-decoration:none;
 }
@@ -68,12 +80,16 @@ background:#25D366;
 color:white;
 text-align:center;
 padding:10px;
-border-radius:5px;
+border-radius:6px;
 text-decoration:none;
 margin-top:10px;
+font-weight:bold;
 }
 
 footer{
 text-align:center;
 padding:20px;
+background:#111;
+color:white;
+margin-top:40px;
 }
