@@ -92,3 +92,16 @@ margin-top:40px;
 grid-template-columns:1fr;
 }
 }
+
+
+.product-link{
+display:block;
+margin-top:10px;
+color:#0077cc;
+text-decoration:none;
+font-weight:500;
+}
+
+.product-link:hover{
+text-decoration:underline;
+}
