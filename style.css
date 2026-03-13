@@ -8,7 +8,7 @@ header{
 background:#111;
 color:white;
 text-align:center;
-padding:20px;
+padding:25px;
 }
 
 .notice{
@@ -18,8 +18,14 @@ text-align:center;
 }
 
 .brand{
-margin:40px;
 text-align:center;
+margin-top:40px;
+}
+
+.section-info{
+text-align:center;
+max-width:600px;
+margin:auto;
 }
 
 .container{
@@ -35,23 +41,28 @@ margin:20px;
 padding:20px;
 border-radius:10px;
 box-shadow:0 5px 15px rgba(0,0,0,0.1);
-transition:0.3s;
 }
 
-.card:hover{
-transform:translateY(-5px);
-}
-
-.card img{
+.gallery img{
 width:100%;
 border-radius:8px;
-margin-bottom:10px;
+}
+
+.thumbs{
+display:flex;
+gap:6px;
+margin-top:6px;
+}
+
+.thumbs img{
+width:48px;
+cursor:pointer;
+border-radius:4px;
 }
 
 .price{
 font-size:22px;
 font-weight:bold;
-margin-bottom:10px;
 }
 
 ul{
@@ -68,10 +79,6 @@ display:block;
 margin-top:10px;
 color:#0077cc;
 text-decoration:none;
-}
-
-.product-link:hover{
-text-decoration:underline;
 }
 
 .btn{
@@ -92,4 +99,11 @@ padding:20px;
 background:#111;
 color:white;
 margin-top:40px;
+}
+
+@media (max-width:900px){
+.container{
+flex-direction:column;
+align-items:center;
+}
 }
