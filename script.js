@@ -1,12 +1,6 @@
 function openProduct(id){
 
-window.location.href="product.html"
-
-}
-
-function changeImage(img){
-
-document.getElementById("mainImage").src=img.src
+window.location.href="product.html?id="+id
 
 }
 
