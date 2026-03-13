@@ -17,6 +17,20 @@ text-align:center;
 padding:15px;
 }
 
+.section-title{
+text-align:center;
+margin-top:40px;
+}
+
+.section-sub{
+text-align:center;
+font-weight:bold;
+}
+
+.shared-specs{
+text-align:center;
+}
+
 .container{
 display:grid;
 grid-template-columns:repeat(2,1fr);
@@ -48,14 +62,9 @@ font-size:24px;
 font-weight:bold;
 }
 
-.short{
+.note{
+font-size:13px;
 color:#666;
-}
-
-.product-link{
-display:block;
-margin-top:10px;
-color:#0077cc;
 }
 
 .btn{
@@ -79,9 +88,7 @@ margin-top:40px;
 }
 
 @media(max-width:700px){
-
 .container{
 grid-template-columns:1fr;
 }
-
 }

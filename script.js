@@ -1,9 +1,3 @@
-function openProduct(id){
-
-window.location.href="product.html?id="+id
-
-}
-
 setInterval(function(){
 
 document.querySelectorAll(".slider").forEach(slider=>{
