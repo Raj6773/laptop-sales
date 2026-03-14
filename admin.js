@@ -30,6 +30,10 @@ Price: ₹${laptop.price}
 
 <br><br>
 
+<button onclick="editLaptop('${laptop.id}')">
+Edit
+</button>
+
 <button onclick="deleteLaptop('${laptop.id}')">
 Delete
 </button>
@@ -41,6 +45,40 @@ Delete
 })
 
 }
+
+
+window.editLaptop = async function(id){
+
+const { data } = await supabase
+.from("laptops")
+.select("*")
+.eq("id",id)
+.single()
+
+document.getElementById("id").value = data.id
+document.getElementById("brand").value = data.brand
+document.getElementById("model").value = data.model
+
+document.getElementById("price").value = data.price
+document.getElementById("processor").value = data.processor
+
+document.getElementById("ram").value = data.ram
+document.getElementById("storage").value = data.storage
+
+document.getElementById("condition").value = data.condition
+document.getElementById("battery").value = data.battery
+
+document.getElementById("keyboard").value = data.keyboard
+document.getElementById("fingerprint").value = data.fingerprint
+
+document.getElementById("note").value = data.note
+document.getElementById("link").value = data.original_link
+
+}
+
+
+
+
 
 window.addLaptop = async function(){
 
@@ -71,7 +109,7 @@ original_link:document.getElementById("link").value
 
 await supabase
 .from("laptops")
-.insert(laptop)
+.upsert(laptop)
 
 const files=document.getElementById("images").files
 
