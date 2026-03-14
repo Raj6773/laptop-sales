@@ -27,9 +27,11 @@ const { data:images } = await supabase
 .select("*")
 
 
-const container = document.querySelector(".container")
+const hpContainer = document.getElementById("hpContainer")
+const lenovoContainer = document.getElementById("lenovoContainer")
 
-container.innerHTML = ""
+hpContainer.innerHTML = ""
+lenovoContainer.innerHTML = ""
 
 laptops.forEach(laptop=>{
 
@@ -73,7 +75,7 @@ ${laptop.note ? `<p><b>Condition Note:</b> ${laptop.note}</p>` : ""}
 </div>
 
 <a class="product-link"
-href="https://www.flipkart.com/hp-340s-g7-core-i5-10th-gen-8-gb-512-gb-ssd-windows-10-pro-laptop/p/itm7d97dbba2a8ec"
+href="${laptop.original_link}"
 target="_blank">
 View Original Laptop Details
 </a>
@@ -86,7 +88,13 @@ Chat on WhatsApp
 </div>
 `
 
-container.innerHTML += card
+if(laptop.brand === "HP"){
+hpContainer.innerHTML += card
+}
+
+if(laptop.brand === "Lenovo"){
+lenovoContainer.innerHTML += card
+}
 
 })
 
