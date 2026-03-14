@@ -37,7 +37,7 @@ laptops.forEach(laptop=>{
 
 let laptopImages = images
 .filter(img=>img.laptop_id === laptop.id)
-.map(img=>"images/"+img.image)
+.map(img=>"https://cfjfqkihhedavxgtgqve.supabase.co/storage/v1/object/public/images/"+img.image)
 
 let slidesHTML = ""
 

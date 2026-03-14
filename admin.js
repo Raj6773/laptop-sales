@@ -13,7 +13,7 @@ const { data } = await supabase
 .from("laptops")
 .select("*")
 
-const list = document.getElementById("laptopList")
+const list=document.getElementById("list")
 
 list.innerHTML=""
 
@@ -44,9 +44,11 @@ Delete
 
 window.addLaptop = async function(){
 
-const laptop = {
+const id=document.getElementById("id").value
 
-id:document.getElementById("id").value,
+const laptop={
+
+id:id,
 brand:document.getElementById("brand").value,
 model:document.getElementById("model").value,
 
@@ -71,6 +73,23 @@ await supabase
 .from("laptops")
 .insert(laptop)
 
+const files=document.getElementById("images").files
+
+for(let file of files){
+
+await supabase.storage
+.from("images")
+.upload(id+"/"+file.name,file)
+
+await supabase
+.from("images")
+.insert({
+laptop_id:id,
+image:id+"/"+file.name
+})
+
+}
+
 alert("Laptop Added")
 
 loadLaptops()
@@ -83,6 +102,11 @@ await supabase
 .from("laptops")
 .delete()
 .eq("id",id)
+
+await supabase
+.from("images")
+.delete()
+.eq("laptop_id",id)
 
 loadLaptops()
 

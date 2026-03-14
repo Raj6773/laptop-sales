@@ -3,27 +3,35 @@
 
 <head>
 
-<title>Admin Panel</title>
+<title>Admin Dashboard</title>
 
 <style>
 
 body{
 font-family:Arial;
-background:#f5f5f5;
-padding:40px;
+background:#f4f6f9;
+margin:0;
+}
+
+header{
+background:#111;
+color:white;
+padding:20px;
+text-align:center;
 }
 
 .container{
-max-width:1000px;
+max-width:1100px;
 margin:auto;
+padding:30px;
 }
 
 .card{
 background:white;
 padding:20px;
-margin-bottom:20px;
 border-radius:10px;
 box-shadow:0 6px 18px rgba(0,0,0,0.1);
+margin-bottom:30px;
 }
 
 input{
@@ -35,6 +43,20 @@ margin:6px 0;
 button{
 padding:10px 20px;
 margin-top:10px;
+cursor:pointer;
+}
+
+.file{
+border:2px dashed #ccc;
+padding:20px;
+text-align:center;
+margin-top:10px;
+}
+
+img{
+width:120px;
+margin:5px;
+border-radius:6px;
 }
 
 </style>
@@ -43,21 +65,26 @@ margin-top:10px;
 
 <body>
 
-<div class="container">
+<header>
 
-<h1>Admin Panel</h1>
+<h1>Laptop Store Admin</h1>
+
+</header>
+
+<div class="container">
 
 <div class="card">
 
 <h2>Add Laptop</h2>
 
 <input id="id" placeholder="Laptop ID">
-<input id="brand" placeholder="Brand">
+
+<input id="brand" placeholder="Brand (HP / Lenovo)">
 <input id="model" placeholder="Model">
 
 <input id="price" placeholder="Price">
-<input id="processor" placeholder="Processor">
 
+<input id="processor" placeholder="Processor">
 <input id="ram" placeholder="RAM">
 <input id="storage" placeholder="Storage">
 
@@ -68,13 +95,20 @@ margin-top:10px;
 <input id="fingerprint" placeholder="Fingerprint">
 
 <input id="note" placeholder="Note">
-<input id="link" placeholder="Original Link">
+<input id="link" placeholder="Original Laptop Link">
+
+<div class="file">
+
+Upload Images  
+<input type="file" id="images" multiple>
+
+</div>
 
 <button onclick="addLaptop()">Add Laptop</button>
 
 </div>
 
-<div id="laptopList"></div>
+<div id="list"></div>
 
 </div>
 
