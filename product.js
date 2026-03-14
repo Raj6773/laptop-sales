@@ -44,7 +44,7 @@ document.getElementById("productInfo").innerHTML = `
 ${laptop.note ? `<p><b>Condition Note:</b> ${laptop.note}</p>` : ""}
 
 <a class="product-link"
-href="https://www.flipkart.com/hp-340s-g7-core-i5-10th-gen-8-gb-512-gb-ssd-windows-10-pro-laptop/p/itm7d97dbba2a8ec"
+href="${laptop.original_link}"
 target="_blank">
 View Original Laptop Details
 </a>
