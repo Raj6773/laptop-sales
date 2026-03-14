@@ -196,15 +196,78 @@ function previewImages(){
 const preview = document.getElementById("preview")
 preview.innerHTML = ""
 
-const files = document.getElementById("images").files
+const files = [...document.getElementById("images").files]
 
-for(let file of files){
+files.forEach((file,index)=>{
 
-let img = document.createElement("img")
+const wrapper = document.createElement("div")
+
+const img = document.createElement("img")
 img.src = URL.createObjectURL(file)
 
-preview.appendChild(img)
+const del = document.createElement("button")
+del.innerText = "Remove"
+del.style.display="block"
+
+del.onclick = ()=>{
+files.splice(index,1)
+const dt = new DataTransfer()
+
+files.forEach(f=>dt.items.add(f))
+document.getElementById("images").files = dt.files
+
+previewImages()
+}
+
+wrapper.appendChild(img)
+wrapper.appendChild(del)
+
+preview.appendChild(wrapper)
+
+})
 
 }
 
+new Sortable(document.getElementById("preview"),{
+animation:150
+})
+
+
+
+async function loadAnalytics(){
+
+const {data} = await supabase
+.from("laptops")
+.select("id,views,clicks")
+
+let html=""
+
+data.forEach(laptop=>{
+
+html+=`
+
+<div style="margin-bottom:10px">
+
+<b>${laptop.id}</b>
+
+<br>
+
+Views: ${laptop.views || 0}
+
+<br>
+
+WhatsApp Clicks: ${laptop.clicks || 0}
+
+<hr>
+
+</div>
+
+`
+
+})
+
+document.getElementById("analytics").innerHTML=html
+
 }
+
+loadAnalytics()
