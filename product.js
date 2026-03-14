@@ -55,16 +55,25 @@ Chat on WhatsApp
 </a>
 `
 
+
+await supabase
+.from("laptops")
+.update({views:laptop.views+1})
+.eq("id",id)
+
+
 const mainImage = document.getElementById("mainImage")
 const thumbs = document.getElementById("thumbs")
 
-mainImage.src = "images/"+images[0].image
+mainImage.src =
+"https://cfjfqkihhedavxgtgqve.supabase.co/storage/v1/object/public/images/"+images[0].image
 
 images.forEach(img=>{
 
 let i = document.createElement("img")
 
-i.src = "images/"+img.image
+i.src =
+"https://cfjfqkihhedavxgtgqve.supabase.co/storage/v1/object/public/images/"+img.image
 
 i.onclick = ()=> mainImage.src=i.src
 

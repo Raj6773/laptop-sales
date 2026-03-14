@@ -84,32 +84,45 @@ window.addLaptop = async function(){
 
 const id=document.getElementById("id").value
 
-const laptop={
+const laptop={ id:id }
 
-id:id,
-brand:document.getElementById("brand").value,
-model:document.getElementById("model").value,
-
-price:document.getElementById("price").value,
-processor:document.getElementById("processor").value,
-
-ram:document.getElementById("ram").value,
-storage:document.getElementById("storage").value,
-
-condition:document.getElementById("condition").value,
-battery:document.getElementById("battery").value,
-
-keyboard:document.getElementById("keyboard").value,
-fingerprint:document.getElementById("fingerprint").value,
-
-note:document.getElementById("note").value,
-original_link:document.getElementById("link").value
-
+function addField(name,id){
+let v=document.getElementById(id).value
+if(v) laptop[name]=v
 }
+
+addField("brand","brand")
+addField("model","model")
+addField("price","price")
+addField("processor","processor")
+addField("ram","ram")
+addField("storage","storage")
+addField("condition","condition")
+addField("battery","battery")
+addField("keyboard","keyboard")
+addField("fingerprint","fingerprint")
+addField("note","note")
+addField("original_link","link")
+
+const {data} = await supabase
+.from("laptops")
+.select("id")
+.eq("id",id)
+
+if(data.length === 0){
 
 await supabase
 .from("laptops")
-.upsert(laptop)
+.insert(laptop)
+
+}else{
+
+await supabase
+.from("laptops")
+.update(laptop)
+.eq("id",id)
+
+}
 
 const files=document.getElementById("images").files
 
@@ -149,3 +162,23 @@ await supabase
 loadLaptops()
 
 }
+
+
+
+document.getElementById("images").addEventListener("change",function(){
+
+const preview=document.getElementById("preview")
+
+preview.innerHTML=""
+
+for(let file of this.files){
+
+let img=document.createElement("img")
+
+img.src=URL.createObjectURL(file)
+
+preview.appendChild(img)
+
+}
+
+})
