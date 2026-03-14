@@ -63,6 +63,14 @@ border-radius:6px;
 
 </head>
 
+<div class="card">
+
+<h2>Analytics</h2>
+
+<div id="analytics"></div>
+
+</div>
+
 <body>
 
 <header>
@@ -97,10 +105,12 @@ border-radius:6px;
 <input id="note" placeholder="Note">
 <input id="link" placeholder="Original Laptop Link">
 
-<div class="file">
+<div class="file" id="dropZone">
 
-Upload Images  
-<input type="file" id="images" multiple>
+<p>Drag & Drop Images Here</p>
+<p>or Click to Upload</p>
+
+<input type="file" id="images" multiple hidden>
 
 <div id="preview"></div>
 
@@ -115,6 +125,8 @@ Upload Images
 </div>
 
 <script type="module" src="admin.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
 
 </body>
 </html>

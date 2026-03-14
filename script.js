@@ -83,6 +83,7 @@ View Original Laptop Details
 </a>
 
 <a class="btn"
+onclick="trackClick('${laptop.id}')"
 href="https://wa.me/7416906493?text=Hi I am interested in Laptop ID ${laptop.id}">
 Chat on WhatsApp
 </a>
@@ -129,6 +130,23 @@ slides[(index+1)%slides.length].classList.add("active")
 })
 
 },3000)
+
+}
+
+
+
+window.trackClick = async function(id){
+
+const {data:laptop} = await supabase
+.from("laptops")
+.select("clicks")
+.eq("id",id)
+.single()
+
+await supabase
+.from("laptops")
+.update({clicks:laptop.clicks+1})
+.eq("id",id)
 
 }
 

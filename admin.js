@@ -168,20 +168,43 @@ loadLaptops()
 
 
 
-document.getElementById("images").addEventListener("change",function(){
+const dropZone = document.getElementById("dropZone")
+const fileInput = document.getElementById("images")
 
-const preview=document.getElementById("preview")
+dropZone.onclick = () => fileInput.click()
 
-preview.innerHTML=""
+dropZone.ondragover = (e)=>{
+e.preventDefault()
+dropZone.style.borderColor="green"
+}
 
-for(let file of this.files){
+dropZone.ondragleave = ()=>{
+dropZone.style.borderColor="#ccc"
+}
 
-let img=document.createElement("img")
+dropZone.ondrop = (e)=>{
+e.preventDefault()
+fileInput.files = e.dataTransfer.files
+previewImages()
+}
 
-img.src=URL.createObjectURL(file)
+document.getElementById("images")
+.addEventListener("change",previewImages)
+
+function previewImages(){
+
+const preview = document.getElementById("preview")
+preview.innerHTML = ""
+
+const files = document.getElementById("images").files
+
+for(let file of files){
+
+let img = document.createElement("img")
+img.src = URL.createObjectURL(file)
 
 preview.appendChild(img)
 
 }
 
-})
+}
