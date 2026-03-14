@@ -110,15 +110,17 @@ startSlider()
 
 function startSlider(){
 
-setInterval(function(){
+setInterval(()=>{
 
 document.querySelectorAll(".slider").forEach(slider=>{
 
-let slides=slider.querySelectorAll(".slide")
+let slides = slider.querySelectorAll(".slide")
 
-let active=slider.querySelector(".active")
+if(slides.length < 2) return
 
-let index=[...slides].indexOf(active)
+let active = slider.querySelector(".active")
+
+let index = [...slides].indexOf(active)
 
 active.classList.remove("active")
 

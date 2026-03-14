@@ -143,6 +143,9 @@ image:id+"/"+file.name
 
 alert("Laptop Added")
 
+document.querySelectorAll("input").forEach(i=>i.value="")
+document.getElementById("preview").innerHTML=""
+
 loadLaptops()
 
 }
