@@ -53,6 +53,8 @@ const card = `
 ${slidesHTML}
 </div>
 
+<h3 class="model">${laptop.brand} ${laptop.model}</h3>
+
 <h3>Laptop ID — ${laptop.id}</h3>
 
 <p class="price">₹${laptop.price}</p>
