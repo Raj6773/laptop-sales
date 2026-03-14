@@ -112,3 +112,11 @@ font-weight:500;
 .product-link:hover{
 text-decoration:underline;
 }
+
+
+
+.model{
+font-size:20px;
+font-weight:bold;
+margin-top:10px;
+}
